@@ -1,4 +1,4 @@
-export default function reducer(state = [], action) {
+export default function reducer(state = [{ huskies: [] }], action) {
   let huskyId = 0;
   let i = 0;
   let huskyArr = [];
@@ -8,24 +8,29 @@ export default function reducer(state = [], action) {
         huskyArr.push({ id: ++huskyId, brushedParts: [] });
         i++;
       }
-      state.push(...huskyArr);
+      state[0].huskies.push(...huskyArr);
       return state;
 
     case "huskyBrushed":
-      for (let x = 0; x < state.length; x++) {
-        if (state[x].id === action.payload.id) {
-          state[x].brushedParts.push(action.payload.part);
+      for (let x = 0; x < state[0].huskies.length; x++) {
+        if (state[0].huskies[x].id === action.payload.id) {
+          state[0].huskies[x].brushedParts.push(action.payload.part);
         }
       }
       return state;
     case "huskyShook":
       console.log(action.payload.id);
-      for (let y = 0; y < state.length; y++) {
-        if (state[y].id === action.payload.id) {
-          state[y].brushedParts = [];
+      for (let y = 0; y < state[0].huskies.length; y++) {
+        if (state[0].huskies[y].id === action.payload.id) {
+          state[0].huskies[y].brushedParts = [];
         }
       }
-    //   return state;
+      return state;
+    case "gameCreated":
+      state.push({
+        game: { height: action.payload.height, width: action.payload.width },
+      });
+      return state;
 
     default:
       return state;

@@ -1,15 +1,30 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: path.resolve(__dirname, "./src/index.js"),
+  devtool: "eval-source-map",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
+      },
+      {
+        test: /\.(s(a|c)ss)$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
+  resolve: {
+    extensions: ["*", ".js", ".jsx"],
+  },
   output: {
-    filename: "app.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "./public"),
+    filename: "bundle.js",
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    port: 9000,
+    contentBase: path.resolve(__dirname, "./public"),
+    hot: true,
   },
-  mode: "development",
-  devtool: "source-map",
 };

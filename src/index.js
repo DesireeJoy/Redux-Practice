@@ -1,4 +1,5 @@
 import store from "./store/store";
+import "./styles/app.scss";
 
 store.dispatch({
   type: "createdHusky",
@@ -46,6 +47,13 @@ store.dispatch({
   type: "huskyShook",
   payload: {
     id: 2,
+  },
+});
+store.dispatch({
+  type: "gameCreated",
+  payload: {
+    height: 5,
+    width: 12,
   },
 });
 console.log(store.getState());

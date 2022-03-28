@@ -1,0 +1,62 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  font-size: 14px;
+}
+
+.cont {
+  width: 100%;
+  background-color: dodgerblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gameHeader {
+  color: white;
+  font-size: 44px;
+  font-weight: 800;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 3px solid #191e67;
+}
+
+.gameForm {
+  width: 100%;
+  background-color: #92cdf0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gameForm label {
+  font-size: 24px;
+}
+
+.gameForm input {
+  border-radius: 15px;
+  padding: 5px;
+  margin: 20px;
+  width: 50px;
+  text-align: center;
+  font-size: 1.2em;
+}
+/*# sourceMappingURL=app.css.map */
